@@ -52,6 +52,10 @@ export default {
     highlightline: {
       type: Boolean,
       default: true
+    },
+    wrapMode: {
+      type: Boolean,
+      default: true
     }
     // todo a lot of other things...
   },
@@ -81,6 +85,9 @@ export default {
     },
     setContent(content) {
       this.editor.session.setValue(content);
+    },
+    setUseWrapMode(mode) {
+      this.editor.getSession().setUseWrapMode(this.wrapMode);
     }
   },
 
@@ -96,6 +103,7 @@ export default {
     this.setTheme();
     this.editor.$blockScrolling = Infinity;
     this.editor.getSession().on("change", this.emitCode);
+    this.editor.getSession().setUseWrapMode(this.wrapMode);
   },
 
   watch: {
