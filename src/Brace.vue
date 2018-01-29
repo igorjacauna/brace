@@ -78,6 +78,9 @@ export default {
     },
     getContent() {
       return this.editor.getValue();
+    },
+    setContent(content) {
+      this.editor.session.setValue(JSON.stringify(content));
     }
   },
 
