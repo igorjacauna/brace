@@ -80,7 +80,7 @@ export default {
       return this.editor.getValue();
     },
     setContent(content) {
-      this.editor.session.setValue(JSON.stringify(content));
+      this.editor.session.setValue(content);
     }
   },
 
